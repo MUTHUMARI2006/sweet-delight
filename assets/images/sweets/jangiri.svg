@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="jgBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7ED" />
+      <stop offset="100%" stop-color="#FFEDD5" />
+    </radialGradient>
+    <linearGradient id="jangiriOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB923C" />
+      <stop offset="50%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+    <filter id="jgShadow">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#9A3412" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#jgBg)"/>
+
+  <!-- Silver Platter -->
+  <ellipse cx="300" cy="285" rx="220" ry="85" fill="#E2E8F0" filter="url(#jgShadow)"/>
+  <ellipse cx="300" cy="278" rx="205" ry="75" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Intricate Jangiri Floral Swirls -->
+  <g filter="url(#jgShadow)" transform="translate(300, 230) scale(1, 0.65)">
+    <!-- Central Ring -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="url(#jangiriOrange)" stroke-width="18"/>
+    <!-- Outer Floral Petals Ring -->
+    <circle cx="0" cy="-60" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="42" cy="-42" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="60" cy="0" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="42" cy="42" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="0" cy="60" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="-42" cy="42" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="-60" cy="0" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+    <circle cx="-42" cy="-42" r="28" fill="none" stroke="url(#jangiriOrange)" stroke-width="16"/>
+  </g>
+
+  <!-- Syrup droplets -->
+  <circle cx="340" cy="285" r="4" fill="#EA580C" opacity="0.7"/>
+  <circle cx="260" cy="280" r="3.5" fill="#EA580C" opacity="0.7"/>
+  <circle cx="300" cy="300" r="5" fill="#EA580C" opacity="0.8"/>
+
+  <!-- Badge -->
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">JANGIRI</text>
+</svg>

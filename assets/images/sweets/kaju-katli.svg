@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="kkBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCFBF9" />
+      <stop offset="100%" stop-color="#EDE7DA" />
+    </radialGradient>
+    <linearGradient id="cashewBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF7EB" />
+      <stop offset="60%" stop-color="#E9DCBA" />
+      <stop offset="100%" stop-color="#CBB78C" />
+    </linearGradient>
+    <linearGradient id="silverVark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#E2E8F0" />
+      <stop offset="60%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="kkShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#554433" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#kkBg)"/>
+
+  <!-- Silver Mirror Tray -->
+  <ellipse cx="300" cy="275" rx="220" ry="90" fill="#CBD5E1" filter="url(#kkShadow)"/>
+  <ellipse cx="300" cy="270" rx="210" ry="80" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+
+  <!-- Diamond Katli Pieces arranged artistically -->
+  <g filter="url(#kkShadow)">
+    <!-- Piece 1 Left -->
+    <polygon points="170,260 230,225 290,255 230,290" fill="url(#cashewBase)" stroke="#B8A478" stroke-width="1.5"/>
+    <polygon points="190,250 220,232 250,250 220,268" fill="url(#silverVark)" opacity="0.85"/>
+
+    <!-- Piece 2 Right -->
+    <polygon points="310,260 370,225 430,255 370,290" fill="url(#cashewBase)" stroke="#B8A478" stroke-width="1.5"/>
+    <polygon points="330,250 360,232 390,250 360,268" fill="url(#silverVark)" opacity="0.85"/>
+
+    <!-- Center Hero Diamond -->
+    <polygon points="240,210 300,165 360,200 300,245" fill="url(#cashewBase)" stroke="#B8A478" stroke-width="2"/>
+    <polygon points="260,195 300,175 340,195 300,225" fill="url(#silverVark)" opacity="0.95"/>
+
+    <!-- Saffron & Pistachio touch -->
+    <circle cx="300" cy="200" r="3" fill="#DC2626"/>
+    <rect x="296" y="206" width="8" height="3" rx="1.5" fill="#16A34A"/>
+  </g>
+
+  <!-- Metallic Shimmer Highlights -->
+  <line x1="275" y1="185" x2="295" y2="185" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="210" y1="240" x2="225" y2="240" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="350" y1="240" x2="365" y2="240" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Badge -->
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">KAJU KATLI</text>
+</svg>

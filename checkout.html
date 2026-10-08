@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Sweet Delight</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div>
+        <span class="top-bar-badge">SECURE CHECKOUT</span>
+        <span>Guaranteed Fresh Delivery straight from our kitchen to your door!</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="cart.html">← Return to Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="Sweet Delight" class="brand-logo-img">
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#sweets" class="nav-link">Sweets</a></li>
+        <li><a href="cart.html" class="nav-link">Cart</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-icon-btn" title="View Cart">
+          <span>🛒</span>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </a>
+        <div class="nav-user-slot" style="position: relative;"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT AREA -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+
+    <!-- CHECKOUT FORM VIEW -->
+    <div id="checkout-form-view">
+      <div style="margin-bottom: 30px;">
+        <h1 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--maroon-900);">Complete Your Sweet Order</h1>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Enter your delivery destination and select your preferred payment mode.</p>
+      </div>
+
+      <div class="checkout-layout">
+        
+        <!-- Left Column: Customer Form & Payment Options -->
+        <div>
+          <!-- Step 1: Customer & Delivery Details -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="step-num">1</span>
+              <h2 class="step-title">Customer & Delivery Details</h2>
+            </div>
+
+            <form id="delivery-details-form">
+              <div class="form-grid">
+                
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label class="form-label" for="cust-name">Full Name *</label>
+                  <input type="text" id="cust-name" class="form-input" placeholder="e.g. Akash Sharma" required>
+                  <span class="form-error-msg" id="err-name">Please enter your full name</span>
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="form-group">
+                  <label class="form-label" for="cust-phone">Mobile Number * (10 Digits)</label>
+                  <input type="tel" id="cust-phone" class="form-input" placeholder="e.g. 9876543210" maxlength="10" required>
+                  <span class="form-error-msg" id="err-phone">Please enter a valid 10-digit mobile number</span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group col-full">
+                  <label class="form-label" for="cust-email">Email Address *</label>
+                  <input type="email" id="cust-email" class="form-input" placeholder="akash@example.com" required>
+                  <span class="form-error-msg" id="err-email">Please enter a valid email address</span>
+                </div>
+
+                <!-- Delivery Address -->
+                <div class="form-group col-full">
+                  <label class="form-label" for="cust-address">Delivery Address (House / Flat No., Street, Landmark) *</label>
+                  <textarea id="cust-address" class="form-textarea" rows="2" placeholder="e.g. Flat 402, Royal Palms, 2nd Cross, Heritage Lane" required></textarea>
+                  <span class="form-error-msg" id="err-address">Please provide your complete delivery address</span>
+                </div>
+
+                <!-- City -->
+                <div class="form-group">
+                  <label class="form-label" for="cust-city">City *</label>
+                  <input type="text" id="cust-city" class="form-input" placeholder="e.g. Chennai / Bengaluru / Delhi" required>
+                  <span class="form-error-msg" id="err-city">Please enter your city</span>
+                </div>
+
+                <!-- Pincode -->
+                <div class="form-group">
+                  <label class="form-label" for="cust-pincode">Pincode * (6 Digits)</label>
+                  <input type="text" id="cust-pincode" class="form-input" placeholder="e.g. 600017" maxlength="6" required>
+                  <span class="form-error-msg" id="err-pincode">Please enter a valid 6-digit postal code</span>
+                </div>
+
+                <!-- Special Delivery Instructions (Optional) -->
+                <div class="form-group col-full">
+                  <label class="form-label" for="cust-notes">Delivery Instructions / Gift Message (Optional)</label>
+                  <input type="text" id="cust-notes" class="form-input" placeholder="e.g. Please ring doorbell twice / Please include festival ribbon">
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 2: Payment Options -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="step-num">2</span>
+              <h2 class="step-title">Payment Method</h2>
+            </div>
+
+            <div class="payment-methods">
+              
+              <!-- Cash on Delivery -->
+              <div class="payment-method-card selected" id="pm-cod" onclick="selectPaymentMethod('cod')">
+                <div class="pm-left">
+                  <input type="radio" name="payment-method" id="radio-cod" value="cod" checked style="accent-color: var(--maroon-700);">
+                  <div>
+                    <div class="pm-title">💵 Cash on Delivery (COD)</div>
+                    <div class="pm-desc">Pay cash or scan QR code with delivery partner upon sweet arrival.</div>
+                  </div>
+                </div>
+                <span class="badge badge-festive">Recommended</span>
+              </div>
+
+              <!-- UPI -->
+              <div class="payment-method-card" id="pm-upi" onclick="selectPaymentMethod('upi')">
+                <div class="pm-left">
+                  <input type="radio" name="payment-method" id="radio-upi" value="upi" style="accent-color: var(--maroon-700);">
+                  <div>
+                    <div class="pm-title">📱 UPI (Google Pay, PhonePe, Paytm)</div>
+                    <div class="pm-desc">Instant zero-fee transfer via any UPI application or QR.</div>
+                  </div>
+                </div>
+                <span style="font-weight: 700; color: var(--gold-600); font-size: 0.82rem;">⚡ Instant</span>
+              </div>
+
+              <!-- UPI Pane Details -->
+              <div class="payment-fields-pane" id="pane-upi">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label">Enter UPI ID (VPA)</label>
+                  <input type="text" class="form-input" id="upi-vpa-input" placeholder="e.g. yourname@okhdfcbank or yourname@paytm">
+                </div>
+                <div class="upi-qr-box">
+                  <p style="font-size: 0.85rem; color: var(--text-secondary);">Or scan sweet QR code to pay:</p>
+                  <!-- Stylized Mock QR Code -->
+                  <svg width="130" height="130" viewBox="0 0 100 100" style="background:#FFF; border:2px solid var(--border-color); border-radius:8px; padding:4px;">
+                    <!-- QR Pattern mock -->
+                    <rect x="5" y="5" width="28" height="28" fill="#580B1C"/>
+                    <rect x="9" y="9" width="20" height="20" fill="#FFF"/>
+                    <rect x="13" y="13" width="12" height="12" fill="#580B1C"/>
+
+                    <rect x="67" y="5" width="28" height="28" fill="#580B1C"/>
+                    <rect x="71" y="9" width="20" height="20" fill="#FFF"/>
+                    <rect x="75" y="13" width="12" height="12" fill="#580B1C"/>
+
+                    <rect x="5" y="67" width="28" height="28" fill="#580B1C"/>
+                    <rect x="9" y="71" width="20" height="20" fill="#FFF"/>
+                    <rect x="13" y="75" width="12" height="12" fill="#580B1C"/>
+
+                    <!-- Random QR Dots -->
+                    <rect x="40" y="10" width="8" height="8" fill="#D4AF37"/>
+                    <rect x="50" y="20" width="10" height="8" fill="#580B1C"/>
+                    <rect x="42" y="38" width="16" height="16" fill="#D4AF37"/>
+                    <rect x="20" y="42" width="10" height="8" fill="#580B1C"/>
+                    <rect x="70" y="42" width="12" height="12" fill="#580B1C"/>
+                    <rect x="40" y="68" width="8" height="14" fill="#D4AF37"/>
+                    <rect x="55" y="75" width="12" height="10" fill="#580B1C"/>
+                    <rect x="78" y="72" width="12" height="14" fill="#D4AF37"/>
+                  </svg>
+                  <span style="font-size: 0.78rem; color: var(--gold-700); font-weight: 700;">UPI ID: sweetdelight@upi</span>
+                </div>
+              </div>
+
+              <!-- Credit / Debit Card -->
+              <div class="payment-method-card" id="pm-card" onclick="selectPaymentMethod('card')">
+                <div class="pm-left">
+                  <input type="radio" name="payment-method" id="radio-card" value="card" style="accent-color: var(--maroon-700);">
+                  <div>
+                    <div class="pm-title">💳 Credit / Debit Card</div>
+                    <div class="pm-desc">Visa, Mastercard, RuPay & American Express accepted.</div>
+                  </div>
+                </div>
+                <span>🔒 256-Bit</span>
+              </div>
+
+              <!-- Card Pane Details -->
+              <div class="payment-fields-pane" id="pane-card">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label">Card Number</label>
+                  <input type="text" class="form-input" id="card-num-input" placeholder="4111 2222 3333 4444" maxlength="19">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div class="form-group">
+                    <label class="form-label">Expiry (MM/YY)</label>
+                    <input type="text" class="form-input" id="card-exp-input" placeholder="12/28" maxlength="5">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">CVV</label>
+                    <input type="password" class="form-input" id="card-cvv-input" placeholder="•••" maxlength="4">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Sticky Order Summary & Place Order Button -->
+        <aside class="order-summary-card">
+          <h3 class="summary-title">Order Items Preview</h3>
+
+          <div id="checkout-items-preview" style="max-height: 240px; overflow-y: auto; margin-bottom: 18px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <strong id="summary-subtotal" style="color: var(--maroon-900);">₹0</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Delivery Charges:</span>
+            <span id="summary-delivery">₹0</span>
+          </div>
+
+          <div class="summary-row" id="summary-discount-row" style="display: none; color: #059669;">
+            <span>Discount:</span>
+            <strong id="summary-discount">-₹0</strong>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Total Payable:</span>
+            <span id="summary-grand-total" class="gold-gradient-text">₹0</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-place-order" style="margin-top: 24px;" onclick="handlePlaceOrder()">
+            Place Order 🎉
+          </button>
+
+          <a href="cart.html" class="btn btn-secondary btn-block" style="margin-top: 10px;">
+            Edit Cart Items
+          </a>
+
+          <div style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted); text-align: center; line-height: 1.5;">
+            By placing your order, you agree to Sweet Delight’s Terms of Freshness and Artisanal Quality Promise.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION SUCCESS VIEW (SHOWN AFTER ORDER IS PLACED) -->
+    <div id="order-success-view" style="display: none;">
+      <div class="order-success-card">
+        <div class="success-icon-wrap">🎉</div>
+        <h2 class="success-title">Order Placed Successfully! 🎉</h2>
+        
+        <div class="order-id-badge" id="confirmed-order-id">
+          Order ID: SD20261008
+        </div>
+
+        <p class="success-message" style="font-size: 1.15rem; font-weight: 600; color: var(--maroon-800);">
+          “Thank you for shopping with Sweet Delight.”
+        </p>
+
+        <p class="success-message" style="margin-top: -16px;">
+          Your sweet box is being carefully packed with pristine love and care by our master halwais. We've sent a detailed confirmation to your registered email and mobile.
+        </p>
+
+        <!-- Detailed Receipt -->
+        <div class="order-receipt-summary" id="confirmed-receipt-details">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-primary btn-lg">
+            View Home 🏠
+          </a>
+          <a href="index.html#sweets" class="btn btn-gold btn-lg">
+            Continue Shopping 🛍️
+          </a>
+          <button type="button" class="btn btn-secondary btn-lg" onclick="window.print()">
+            🖨️ Print Receipt
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/images/logo.svg" alt="Sweet Delight" style="height: 52px; filter: brightness(0) invert(1);">
+        </a>
+        <p>Sweet Delight - Fresh artisanal Indian sweets delivered directly to your doorstep.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#sweets">Sweets</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Helpline</h4>
+        <p style="font-size: 0.9rem; color: #E2CEB9;">📞 +91 98765 43210<br>Daily 8:00 AM - 10:30 PM</p>
+      </div>
+      <div>
+        <h4 class="footer-title">100% Ghee Guarantee</h4>
+        <p style="font-size: 0.85rem; color: #E2CEB9;">Crafted only using pure bilona cow ghee and fresh ingredients.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© 2026 Sweet Delight Mithai. All Rights Reserved.</div>
+      <div>“A Little Sweetness in Every Bite.”</div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data/sweets.js"></script>
+  <script src="scripts/app.js"></script>
+  <script>
+    let currentPaymentMethod = 'cod';
+
+    function selectPaymentMethod(method) {
+      currentPaymentMethod = method;
+      
+      // Update radio and cards
+      ['cod', 'upi', 'card'].forEach(m => {
+        const card = document.getElementById(`pm-${m}`);
+        const radio = document.getElementById(`radio-${m}`);
+        const pane = document.getElementById(`pane-${m}`);
+
+        if (m === method) {
+          if (card) card.classList.add('selected');
+          if (radio) radio.checked = true;
+          if (pane) pane.classList.add('active');
+        } else {
+          if (card) card.classList.remove('selected');
+          if (radio) radio.checked = false;
+          if (pane) pane.classList.remove('active');
+        }
+      });
+    }
+
+    function initCheckoutPage() {
+      const cart = getCart();
+
+      // Check if user is logged in and prefill
+      const user = getCurrentUser();
+      if (user) {
+        if (user.name) document.getElementById('cust-name').value = user.name;
+        if (user.email) document.getElementById('cust-email').value = user.email;
+        if (user.phone) document.getElementById('cust-phone').value = user.phone;
+      }
+
+      if (cart.length === 0) {
+        // If cart is empty and no confirmation is being viewed, redirect to cart or show notice
+        const preview = document.getElementById('checkout-items-preview');
+        preview.innerHTML = `
+          <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+            Your cart is currently empty.<br>
+            <a href="index.html#sweets" class="btn btn-primary btn-sm" style="margin-top: 10px;">Select Sweets</a>
+          </div>
+        `;
+        document.getElementById('btn-place-order').disabled = true;
+        document.getElementById('btn-place-order').style.opacity = '0.5';
+        return;
+      }
+
+      // Render items preview
+      const preview = document.getElementById('checkout-items-preview');
+      preview.innerHTML = cart.map(item => `
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; font-size: 0.88rem;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="${item.image}" alt="${item.name}" style="width: 38px; height: 38px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);" onerror="this.src='assets/images/placeholder.svg'">
+            <div>
+              <strong style="color: var(--maroon-900);">${item.name}</strong>
+              <div style="font-size: 0.74rem; color: var(--text-muted);">${item.weight} × ${item.quantity}</div>
+            </div>
+          </div>
+          <div style="font-weight: 700; color: var(--maroon-700);">₹${item.unitPrice * item.quantity}</div>
+        </div>
+      `).join('');
+
+      // Update Totals
+      const totals = getCartTotals();
+      document.getElementById('summary-subtotal').textContent = `₹${totals.subtotal}`;
+      
+      const delivEl = document.getElementById('summary-delivery');
+      delivEl.innerHTML = totals.deliveryFee === 0 
+        ? '<strong style="color:#10B981;">FREE</strong>' 
+        : `₹${totals.deliveryFee}`;
+
+      const discRow = document.getElementById('summary-discount-row');
+      if (totals.discount > 0) {
+        discRow.style.display = 'flex';
+        document.getElementById('summary-discount').textContent = `-₹${totals.discount}`;
+      } else {
+        discRow.style.display = 'none';
+      }
+
+      document.getElementById('summary-grand-total').textContent = `₹${totals.grandTotal}`;
+    }
+
+    function validateField(inputEl, errEl, condition) {
+      const group = inputEl.closest('.form-group');
+      if (!condition) {
+        if (group) group.classList.add('has-error');
+        return false;
+      } else {
+        if (group) group.classList.remove('has-error');
+        return true;
+      }
+    }
+
+    function handlePlaceOrder() {
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast('Cart Empty', 'Please add sweets before placing an order', 'error');
+        return;
+      }
+
+      const nameEl = document.getElementById('cust-name');
+      const phoneEl = document.getElementById('cust-phone');
+      const emailEl = document.getElementById('cust-email');
+      const addrEl = document.getElementById('cust-address');
+      const cityEl = document.getElementById('cust-city');
+      const pinEl = document.getElementById('cust-pincode');
+      const notesEl = document.getElementById('cust-notes');
+
+      let isValid = true;
+
+      // Validate Name
+      if (!validateField(nameEl, document.getElementById('err-name'), nameEl.value.trim().length >= 2)) {
+        isValid = false;
+      }
+
+      // Validate Phone (10 digits)
+      const phoneDigits = phoneEl.value.replace(/\D/g, '');
+      if (!validateField(phoneEl, document.getElementById('err-phone'), phoneDigits.length === 10)) {
+        isValid = false;
+      }
+
+      // Validate Email
+      if (!validateField(emailEl, document.getElementById('err-email'), emailEl.value.includes('@') && emailEl.value.includes('.'))) {
+        isValid = false;
+      }
+
+      // Validate Address
+      if (!validateField(addrEl, document.getElementById('err-address'), addrEl.value.trim().length >= 6)) {
+        isValid = false;
+      }
+
+      // Validate City
+      if (!validateField(cityEl, document.getElementById('err-city'), cityEl.value.trim().length >= 2)) {
+        isValid = false;
+      }
+
+      // Validate Pincode (6 digits)
+      const pinDigits = pinEl.value.replace(/\D/g, '');
+      if (!validateField(pinEl, document.getElementById('err-pincode'), pinDigits.length === 6)) {
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showToast('Incomplete Form', 'Please fill in all required customer details.', 'error');
+        return;
+      }
+
+      // Calculate totals for receipt snapshot
+      const totals = getCartTotals();
+      const customerData = {
+        name: nameEl.value.trim(),
+        phone: phoneDigits,
+        email: emailEl.value.trim(),
+        address: addrEl.value.trim(),
+        city: cityEl.value.trim(),
+        pincode: pinDigits,
+        notes: notesEl.value.trim(),
+        paymentMethod: currentPaymentMethod.toUpperCase()
+      };
+
+      // Generate Order ID matching requirements: "SD20261008" or SD + date + random
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      // Format: SD20261008
+      const orderId = `SD${yyyy}${mm}${dd}`;
+
+      // Save order snapshot
+      const orderRecord = {
+        orderId,
+        date: now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+        items: [...cart],
+        totals: { ...totals },
+        customer: customerData
+      };
+      localStorage.setItem(STORAGE_KEYS.LAST_ORDER, JSON.stringify(orderRecord));
+
+      // Clear the cart
+      clearCart();
+
+      // Switch to confirmation view
+      document.getElementById('checkout-form-view').style.display = 'none';
+      document.getElementById('order-success-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Populate confirmation details
+      document.getElementById('confirmed-order-id').textContent = `Order ID: ${orderId}`;
+
+      const receiptEl = document.getElementById('confirmed-receipt-details');
+      receiptEl.innerHTML = `
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
+          <div>
+            <strong style="color: var(--maroon-900);">Deliver To:</strong><br>
+            <span style="font-size: 0.95rem; font-weight: 600;">${customerData.name}</span><br>
+            <span style="font-size: 0.85rem; color: var(--text-secondary);">${customerData.address}, ${customerData.city} - ${customerData.pincode}</span><br>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">📱 ${customerData.phone} | ✉️ ${customerData.email}</span>
+          </div>
+          <div style="text-align: right;">
+            <strong style="color: var(--maroon-900);">Estimated Delivery:</strong><br>
+            <span style="color: #059669; font-weight: 700; font-size: 0.95rem;">Tomorrow by 2:00 PM</span><br>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Payment: ${customerData.paymentMethod}</span>
+          </div>
+        </div>
+
+        <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--maroon-900); margin-bottom: 10px;">Ordered Sweets:</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+          ${orderRecord.items.map(item => `
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem;">
+              <span>• <strong>${item.name}</strong> (${item.weight} × ${item.quantity})</span>
+              <strong style="color: var(--maroon-700);">₹${item.unitPrice * item.quantity}</strong>
+            </div>
+          `).join('')}
+        </div>
+
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px; display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; color: var(--maroon-900);">
+          <span>Total Paid / Payable:</span>
+          <span style="color: var(--maroon-700);">₹${orderRecord.totals.grandTotal}</span>
+        </div>
+      `;
+
+      showToast('Order Placed Successfully! 🎉', `Order ${orderId} confirmed!`, 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initCheckoutPage();
+    });
+  </script>
+</body>
+</html>

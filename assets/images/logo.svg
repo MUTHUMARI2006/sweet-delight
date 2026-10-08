@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B1E3F" />
+      <stop offset="100%" stop-color="#540D1D" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Emblem Background -->
+  <g transform="translate(10, 8)">
+    <!-- Outer ornate circle -->
+    <circle cx="32" cy="32" r="28" fill="url(#maroonGrad)" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="32" cy="32" r="24" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="2 3" opacity="0.8" />
+    
+    <!-- Royal sweet/diya icon -->
+    <!-- Sweet bowl / Diya base -->
+    <path d="M18 36 C18 46, 46 46, 46 36 Z" fill="url(#goldGrad)" />
+    <!-- Sweet dome / Laddu / Modak flame -->
+    <path d="M32 16 C37 23, 44 28, 44 34 C44 40, 20 40, 20 34 C20 28, 27 23, 32 16 Z" fill="url(#goldGrad)" opacity="0.9" />
+    <!-- Center sparkle -->
+    <circle cx="32" cy="27" r="2.5" fill="#FFF9E6" />
+    <!-- Little ornamental dots around base -->
+    <circle cx="24" cy="44" r="1.5" fill="#FFE082" />
+    <circle cx="32" cy="45" r="1.5" fill="#FFE082" />
+    <circle cx="40" cy="44" r="1.5" fill="#FFE082" />
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="82" y="38" font-family="'Playfair Display', 'Cinzel', 'Georgia', serif" font-size="28" font-weight="700" fill="url(#maroonGrad)" letter-spacing="0.5">
+    Sweet<tspan fill="url(#goldGrad)">Delight</tspan>
+  </text>
+  
+  <text x="84" y="55" font-family="'Plus Jakarta Sans', 'Poppins', sans-serif" font-size="9" font-weight="600" fill="#996515" letter-spacing="2.5">
+    ARTISANAL INDIAN MITHAI
+  </text>
+
+  <!-- Elegant golden divider flourish under tagline -->
+  <line x1="84" y1="62" x2="280" y2="62" stroke="url(#goldGrad)" stroke-width="1" opacity="0.6" />
+  <circle cx="182" cy="62" r="2" fill="url(#goldGrad)" />
+</svg>

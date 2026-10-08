@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="gbBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#FCE7D0"/>
+    </radialGradient>
+    <linearGradient id="boxMaroon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9B1D3D"/>
+      <stop offset="50%" stop-color="#7A1228"/>
+      <stop offset="100%" stop-color="#4A0817"/>
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <filter id="gbShadow">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#4A0817" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#gbBg)"/>
+  <!-- Gift Box Base and Lid (Isometric / Perspective 3D Box) -->
+  <g filter="url(#gbShadow)">
+    <path d="M150,210 L300,140 L450,210 L300,280 Z" fill="url(#boxMaroon)"/>
+    <path d="M150,210 L300,280 L300,320 L150,250 Z" fill="#580B1C"/>
+    <path d="M300,280 L450,210 L450,250 L300,320 Z" fill="#3D0612"/>
+    <!-- Ornate Golden Borders on Lid -->
+    <path d="M165,210 L300,148 L435,210 L300,272 Z" fill="none" stroke="url(#goldRibbon)" stroke-width="2" stroke-dasharray="6 3"/>
+    <!-- Golden Satin Ribbon Cross -->
+    <path d="M225,175 L225,245 L375,175 L375,245" fill="none" stroke="url(#goldRibbon)" stroke-width="12" opacity="0.95"/>
+    <!-- Regal Ribbon Bow on Top -->
+    <ellipse cx="280" cy="200" rx="22" ry="14" fill="url(#goldRibbon)" transform="rotate(-30 280 200)"/>
+    <ellipse cx="320" cy="200" rx="22" ry="14" fill="url(#goldRibbon)" transform="rotate(30 320 200)"/>
+    <circle cx="300" cy="205" r="10" fill="#FFFBEB" stroke="#996515" stroke-width="2"/>
+  </g>
+  <!-- Decorative Sparkles -->
+  <path d="M190,140 L195,150 L205,155 L195,160 L190,170 L185,160 L175,155 L185,150 Z" fill="#FBBF24"/>
+  <path d="M420,150 L424,158 L432,162 L424,166 L420,174 L416,166 L408,162 L416,158 Z" fill="#FBBF24"/>
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">HERITAGE GIFT BOX</text>
+</svg>

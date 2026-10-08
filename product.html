@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Details | Sweet Delight</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div>
+        <span class="top-bar-badge">FRESH BATCH TODAY</span>
+        <span>All sweets are cooked in pure Desi Cow Ghee and shipped fresh!</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#sweets">← Back to Catalog</a>
+        <a href="cart.html">View Cart 🛒</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="Sweet Delight" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#sweets" class="nav-link active">Sweets</a></li>
+        <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-search-wrap">
+        <span class="nav-search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="nav-search-input search-input-field" 
+          placeholder="Search sweets..." 
+          data-dropdown="nav-search-dropdown"
+          autocomplete="off"
+        >
+        <div id="nav-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-icon-btn" title="Shopping Cart">
+          <span>🛒</span>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </a>
+        <div class="nav-user-slot" style="position: relative;"></div>
+        <button type="button" class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <div style="background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 12px 0; font-size: 0.88rem;">
+    <div class="container" style="display: flex; gap: 8px; align-items: center; color: var(--text-muted);">
+      <a href="index.html" style="color: var(--maroon-700); font-weight: 600;">Home</a>
+      <span>/</span>
+      <a href="index.html#sweets" style="color: var(--maroon-700); font-weight: 600;">Sweets</a>
+      <span>/</span>
+      <span id="breadcrumb-category">Milk Sweets</span>
+      <span>/</span>
+      <strong id="breadcrumb-sweet-name" style="color: var(--maroon-900);">Palkova</strong>
+    </div>
+  </div>
+
+  <!-- MAIN PRODUCT DETAILS SECTION -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 60px;">
+    <div class="product-detail-layout" id="product-detail-container">
+      
+      <!-- Left Column: Gallery / Images -->
+      <div class="product-gallery">
+        <div class="product-main-view">
+          <img id="detail-main-img" src="assets/images/sweets/palkova.svg" alt="Sweet Details" onerror="this.src='assets/images/placeholder.svg'">
+        </div>
+        <div class="product-thumbnails">
+          <div class="thumb-item active" id="thumb-primary">
+            <img id="thumb-primary-img" src="assets/images/sweets/palkova.svg" alt="Primary View">
+          </div>
+          <div class="thumb-item" id="thumb-alt">
+            <img src="assets/images/placeholder.svg" alt="Packaging View">
+          </div>
+        </div>
+        
+        <!-- Trust badge under image -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">🧈</span>
+            <div>
+              <strong style="font-size: 0.82rem; color: var(--maroon-900);">100% Desi Ghee</strong>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Crafted in pure butterfat</div>
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">🌿</span>
+            <div>
+              <strong style="font-size: 0.82rem; color: var(--maroon-900);">No Preservatives</strong>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Pure traditional recipe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Info & Purchase Controls -->
+      <div class="product-info-col">
+        <div class="detail-badge-row">
+          <span class="badge badge-bestseller" id="detail-badge">Best Seller</span>
+          <span class="product-category-tag" id="detail-category-tag" style="margin-bottom: 0;">Milk Sweets</span>
+          <button type="button" class="wishlist-btn" id="detail-wishlist-btn" title="Add to Wishlist" style="position: static; margin-left: auto;">🤍</button>
+        </div>
+
+        <h1 class="detail-title" id="detail-name">Palkova</h1>
+        
+        <div class="product-rating" style="margin-bottom: 14px;">
+          <span class="stars" style="font-size: 1.1rem;">★★★★★</span>
+          <span id="detail-rating" style="font-weight: 700; font-size: 0.95rem;">5.0</span>
+          <span class="reviews-count" id="detail-reviews" style="font-size: 0.9rem;">(415 verified ratings)</span>
+          <span style="color: #10B981; font-weight: 700; font-size: 0.82rem; margin-left: 8px;">● In Stock & Ready to Ship</span>
+        </div>
+
+        <!-- Dynamic Price Display -->
+        <div class="detail-price-box">
+          <div class="detail-price" id="detail-calculated-price">₹300</div>
+          <div style="color: var(--text-muted); font-size: 0.95rem;">
+            Inclusive of all taxes for <strong id="detail-selected-weight-label" style="color: var(--maroon-900);">500g</strong>
+          </div>
+        </div>
+
+        <!-- Short and Detailed Description -->
+        <p class="detail-desc" id="detail-description">
+          Rich, creamy and traditional milk-based sweet prepared with slowly reduced milk and sugar. A thick, creamy milk-based sweet prepared with farm fresh cow milk simmering for hours.
+        </p>
+
+        <!-- Weight Selection -->
+        <div class="weight-selector-wrap">
+          <span class="option-label">Select Weight Pack:</span>
+          <div class="weight-pills">
+            <button type="button" class="weight-pill-btn" data-weight="250g" onclick="selectWeight('250g')">
+              <strong>250g</strong>
+              <div style="font-size: 0.76rem; opacity: 0.85;" id="weight-pill-price-250">₹165</div>
+            </button>
+            <button type="button" class="weight-pill-btn active" data-weight="500g" onclick="selectWeight('500g')">
+              <strong>500g</strong>
+              <div style="font-size: 0.76rem; opacity: 0.85;" id="weight-pill-price-500">₹300 (Standard)</div>
+            </button>
+            <button type="button" class="weight-pill-btn" data-weight="1kg" onclick="selectWeight('1kg')">
+              <strong>1kg</strong>
+              <div style="font-size: 0.76rem; opacity: 0.85; color: var(--gold-600);" id="weight-pill-price-1000">₹570 (Save 5%)</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quantity & Add to Cart / Buy Now -->
+        <div style="margin-bottom: 24px;">
+          <span class="option-label">Select Quantity:</span>
+          <div class="detail-actions-row">
+            <div class="qty-control" style="padding: 4px 8px;">
+              <button type="button" class="qty-btn" onclick="stepDetailQty(-1)" style="width: 36px; height: 36px; font-size: 1.2rem;">-</button>
+              <input type="text" class="qty-input" id="detail-qty-input" value="1" readonly style="width: 48px; font-size: 1.1rem;">
+              <button type="button" class="qty-btn" onclick="stepDetailQty(1)" style="width: 36px; height: 36px; font-size: 1.2rem;">+</button>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg" id="btn-add-to-cart" style="flex: 1;" onclick="handleDetailAddToCart()">
+              <span>Add to Cart 🛒</span>
+            </button>
+            
+            <button type="button" class="btn btn-gold btn-lg" id="btn-buy-now" style="flex: 1;" onclick="handleDetailBuyNow()">
+              <span>Buy Now ⚡</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ingredients & Details Metadata -->
+        <div class="detail-meta-box">
+          <div class="meta-item">
+            <span class="meta-label">Ingredients:</span>
+            <span class="meta-val" id="detail-ingredients">Farm Fresh Cow Milk, Cane Sugar, Desi Ghee, Cardamom</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Shelf Life:</span>
+            <span class="meta-val" id="detail-shelflife">14 days refrigerated</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Nutrition (100g):</span>
+            <span class="meta-val" id="detail-nutrition">Energy: 410 kcal | Protein: 9.5g | Carbs: 52g | Fat: 18.5g</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Dietary:</span>
+            <span class="meta-val">100% Vegetarian 🌱 | Gluten-Free</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RELATED SWEETS RECOMMENDATION SECTION -->
+    <div style="margin-top: 60px;">
+      <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+        <span class="section-tag">Pair With These Delicacies</span>
+        <h2 class="section-title" style="font-size: 1.8rem;">You May Also Relish</h2>
+      </div>
+      <div class="products-grid" id="related-products-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/images/logo.svg" alt="Sweet Delight" style="height: 52px; filter: brightness(0) invert(1);">
+        </a>
+        <p>
+          Sweet Delight is an iconic Indian artisanal confectionery brand celebrating authentic regional mithai prepared with 100% pure cow desi ghee.
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#sweets">All Sweets</a></li>
+          <li><a href="cart.html">Shopping Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Popular Favorites</h4>
+        <ul class="footer-links">
+          <li><a href="product.html?id=palkova">Palkova</a></li>
+          <li><a href="product.html?id=gulab-jamun">Gulab Jamun</a></li>
+          <li><a href="product.html?id=kaju-katli">Kaju Katli</a></li>
+          <li><a href="product.html?id=mysore-pak">Mysore Pak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Customer Care</h4>
+        <p style="font-size: 0.9rem; color: #E2CEB9;">
+          Need assistance or custom corporate hampers? Reach out 7 days a week.
+        </p>
+        <p style="font-size: 0.95rem; font-weight: 700; color: var(--gold-300); margin-top: 8px;">
+          📞 +91 98765 43210
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© 2026 Sweet Delight Mithai. All Rights Reserved.</div>
+      <div>“A Little Sweetness in Every Bite.”</div>
+    </div>
+  </footer>
+
+  <!-- Floating Mobile Cart -->
+  <a href="cart.html" class="floating-mobile-cart" id="mobile-floating-cart">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 1.3rem;">🛒</span>
+      <span class="mobile-cart-count" style="font-weight: 700;">0 Items</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="mobile-cart-total" style="font-weight: 800; font-size: 1.1rem; color: var(--gold-300);">₹0</span>
+      <span style="font-size: 0.9rem;">View Cart →</span>
+    </div>
+  </a>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data/sweets.js"></script>
+  <script src="scripts/app.js"></script>
+  <script>
+    let currentSweet = null;
+    let selectedWeight = '500g';
+    let currentQty = 1;
+
+    // Parse URL parameter ?id=...
+    function getSweetFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const sweetId = params.get('id') || 'palkova';
+      return SWEETS_DATA.find(s => s.id === sweetId) || SWEETS_DATA[2]; // Default to Palkova
+    }
+
+    function renderProductDetails() {
+      currentSweet = getSweetFromURL();
+      if (!currentSweet) return;
+
+      document.title = `${currentSweet.name} | Sweet Delight Mithai`;
+
+      // Breadcrumbs
+      document.getElementById('breadcrumb-category').textContent = currentSweet.categoryName;
+      document.getElementById('breadcrumb-sweet-name').textContent = currentSweet.name;
+
+      // Image
+      const mainImg = document.getElementById('detail-main-img');
+      mainImg.src = currentSweet.localImage || currentSweet.image;
+      mainImg.alt = currentSweet.name;
+      document.getElementById('thumb-primary-img').src = currentSweet.localImage || currentSweet.image;
+
+      // Badges
+      const badgeEl = document.getElementById('detail-badge');
+      if (currentSweet.badge) {
+        badgeEl.textContent = currentSweet.badge;
+        badgeEl.style.display = 'inline-flex';
+      } else {
+        badgeEl.style.display = 'none';
+      }
+      document.getElementById('detail-category-tag').textContent = currentSweet.categoryName;
+
+      // Titles & descriptions
+      document.getElementById('detail-name').textContent = currentSweet.name;
+      document.getElementById('detail-rating').textContent = currentSweet.rating;
+      document.getElementById('detail-reviews').textContent = `(${currentSweet.reviewsCount} verified reviews)`;
+      document.getElementById('detail-description').textContent = currentSweet.description;
+
+      // Ingredients & Nutrition
+      document.getElementById('detail-ingredients').textContent = currentSweet.ingredients.join(', ');
+      document.getElementById('detail-shelflife').textContent = currentSweet.shelfLife;
+      if (currentSweet.nutrition) {
+        document.getElementById('detail-nutrition').textContent = 
+          `Energy: ${currentSweet.nutrition.energy} | Protein: ${currentSweet.nutrition.protein} | Carbs: ${currentSweet.nutrition.carbs} | Fat: ${currentSweet.nutrition.fat}`;
+      }
+
+      // Wishlist toggle
+      const wishBtn = document.getElementById('detail-wishlist-btn');
+      const wishlist = getWishlist();
+      wishBtn.setAttribute('data-id', currentSweet.id);
+      wishBtn.innerHTML = wishlist.includes(currentSweet.id) ? '❤️' : '🤍';
+      wishBtn.onclick = () => {
+        toggleWishlist(currentSweet.id);
+        const updated = getWishlist();
+        wishBtn.innerHTML = updated.includes(currentSweet.id) ? '❤️' : '🤍';
+      };
+
+      // Weight pills price previews
+      document.getElementById('weight-pill-price-250').textContent = `₹${calculatePriceByWeight(currentSweet.price, '250g')}`;
+      document.getElementById('weight-pill-price-500').textContent = `₹${currentSweet.price} (Standard)`;
+      document.getElementById('weight-pill-price-1000').textContent = `₹${calculatePriceByWeight(currentSweet.price, '1kg')} (Save 5%)`;
+
+      updatePriceUI();
+      renderRelatedSweets();
+    }
+
+    function selectWeight(weight) {
+      selectedWeight = weight;
+      document.querySelectorAll('.weight-pill-btn').forEach(btn => {
+        if (btn.getAttribute('data-weight') === weight) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      updatePriceUI();
+    }
+
+    function updatePriceUI() {
+      if (!currentSweet) return;
+      const unitPrice = calculatePriceByWeight(currentSweet.price, selectedWeight);
+      const totalPrice = unitPrice * currentQty;
+      document.getElementById('detail-calculated-price').textContent = `₹${totalPrice}`;
+      document.getElementById('detail-selected-weight-label').textContent = `${selectedWeight}${currentQty > 1 ? ` (×${currentQty})` : ''}`;
+    }
+
+    function stepDetailQty(delta) {
+      currentQty += delta;
+      if (currentQty < 1) currentQty = 1;
+      if (currentQty > 20) currentQty = 20;
+      document.getElementById('detail-qty-input').value = currentQty;
+      updatePriceUI();
+    }
+
+    function handleDetailAddToCart() {
+      if (!currentSweet) return;
+      addToCart(currentSweet.id, selectedWeight, currentQty);
+    }
+
+    function handleDetailBuyNow() {
+      if (!currentSweet) return;
+      addToCart(currentSweet.id, selectedWeight, currentQty);
+      window.location.href = 'checkout.html';
+    }
+
+    // Render Related Sweets
+    function renderRelatedSweets() {
+      const container = document.getElementById('related-products-grid');
+      if (!container || !currentSweet) return;
+
+      const related = SWEETS_DATA.filter(s => s.id !== currentSweet.id).slice(0, 4);
+
+      container.innerHTML = related.map(sweet => `
+        <article class="product-card" data-id="${sweet.id}">
+          <div class="product-image-wrap">
+            <img src="${sweet.localImage || sweet.image}" alt="${sweet.name}" class="product-image" onerror="this.src='${sweet.localImage || 'assets/images/placeholder.svg'}'">
+          </div>
+          <div class="product-content">
+            <span class="product-category-tag">${sweet.categoryName}</span>
+            <h3 class="product-title">${sweet.name}</h3>
+            <div class="product-price-row">
+              <div class="product-price">₹${sweet.price}</div>
+              <div class="product-unit">per ${sweet.unit}</div>
+            </div>
+            <a href="product.html?id=${sweet.id}" class="btn btn-secondary btn-block btn-sm">
+              View Delicacy →
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductDetails();
+    });
+  </script>
+</body>
+</html>

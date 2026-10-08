@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Shopping Cart | Sweet Delight</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div>
+        <span class="top-bar-badge">FESTIVE OFFER</span>
+        <span>Orders above ₹500 get <strong>FREE Express Delivery</strong>!</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html#sweets">← Continue Browsing</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="Sweet Delight" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#sweets" class="nav-link">Sweets</a></li>
+        <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-search-wrap">
+        <span class="nav-search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="nav-search-input search-input-field" 
+          placeholder="Search sweets..." 
+          data-dropdown="nav-search-dropdown"
+          autocomplete="off"
+        >
+        <div id="nav-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-icon-btn" title="Cart" style="background: var(--maroon-700); color: #FFF;">
+          <span>🛒</span>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </a>
+        <div class="nav-user-slot" style="position: relative;"></div>
+        <button type="button" class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CART PAGE CONTENT -->
+  <main class="container" style="padding-top: 48px; padding-bottom: 80px;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 14px;">
+      <div>
+        <h1 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--maroon-900);">Your Shopping Cart</h1>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Review your freshly prepared artisanal sweets before checkout.</p>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-cart" onclick="handleClearCartPrompt()" style="display: none;">
+        🗑️ Clear Entire Cart
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Pill -->
+    <div id="delivery-progress-bar" style="background: var(--bg-accent-gold); border: 1px solid var(--gold-500); border-radius: var(--radius-md); padding: 14px 20px; margin-bottom: 30px; display: none; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 1.4rem;">🚚</span>
+        <span id="delivery-status-text" style="font-size: 0.92rem; font-weight: 600; color: var(--maroon-900);"></span>
+      </div>
+      <a href="index.html#sweets" class="btn btn-gold btn-sm" id="delivery-add-more-btn" style="display: none;">
+        + Add Sweets
+      </a>
+    </div>
+
+    <!-- Cart Layout Grid -->
+    <div class="cart-layout" id="cart-content-layout">
+      
+      <!-- Left Column: Items Table / List -->
+      <div class="cart-items-card">
+        <div class="cart-table-header">
+          <span>Sweet & Portion</span>
+          <span>Unit Price</span>
+          <span>Quantity</span>
+          <span>Subtotal</span>
+          <span></span>
+        </div>
+
+        <div id="cart-items-list">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--border-color);">
+          <a href="index.html#sweets" class="btn btn-secondary">
+            ← Continue Shopping
+          </a>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">
+            Items are reserved for 30 minutes in your browser.
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Column: Order Summary Card -->
+      <aside class="order-summary-card">
+        <h3 class="summary-title">Order Summary</h3>
+
+        <div class="summary-row">
+          <span>Items Subtotal:</span>
+          <strong id="cart-summary-subtotal" style="color: var(--maroon-900);">₹0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Fee:</span>
+          <span id="cart-summary-delivery" style="font-weight: 600;">₹50</span>
+        </div>
+
+        <div class="summary-row" id="cart-discount-row" style="display: none; color: #059669;">
+          <span>Coupon Discount:</span>
+          <strong id="cart-summary-discount">-₹0</strong>
+        </div>
+
+        <!-- Promo Code Input -->
+        <div style="margin: 20px 0;">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--maroon-900); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">
+            Have a Promo Code?
+          </label>
+          <div class="coupon-box">
+            <input type="text" id="coupon-code-input" class="coupon-input" placeholder="e.g. SWEET10" maxlength="12">
+            <button type="button" class="btn btn-primary btn-sm" onclick="applyCouponCode()">Apply</button>
+          </div>
+          <div id="coupon-feedback" style="font-size: 0.8rem; margin-top: 4px; display: none;"></div>
+          <!-- Sample coupon hint pills -->
+          <div style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap;">
+            <button type="button" style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 2px 8px; border-radius: var(--radius-full); cursor: pointer;" onclick="tryCoupon('SWEET10')">
+              🏷️ SWEET10 (10% OFF)
+            </button>
+            <button type="button" style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 2px 8px; border-radius: var(--radius-full); cursor: pointer;" onclick="tryCoupon('FESTIVE50')">
+              🏷️ FESTIVE50 (₹50 OFF)
+            </button>
+          </div>
+        </div>
+
+        <!-- Grand Total Row -->
+        <div class="summary-row total-row">
+          <span>Total Amount:</span>
+          <span id="cart-summary-total" class="gold-gradient-text">₹0</span>
+        </div>
+
+        <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+          <a href="checkout.html" class="btn btn-primary btn-lg btn-block" style="box-shadow: 0 8px 24px rgba(122,18,40,0.3);">
+            Proceed to Checkout 💳
+          </a>
+          <a href="index.html#sweets" class="btn btn-secondary btn-block">
+            Continue Shopping
+          </a>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 0.78rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+          🔒 Safe & Secure 256-Bit SSL Checkout<br>100% Satisfaction & Freshness Guarantee
+        </div>
+      </aside>
+    </div>
+
+    <!-- EMPTY CART STATE (HIDDEN WHEN CART HAS ITEMS) -->
+    <div id="cart-empty-view" class="empty-state" style="display: none; max-width: 600px; margin: 40px auto;">
+      <div class="empty-icon">🍬</div>
+      <h2 class="empty-title">Your cart is empty 🍬</h2>
+      <p class="empty-desc">
+        Looks like you haven't added any traditional sweets to your basket yet. Taste the authentic recipes of India today!
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#sweets" class="btn btn-primary btn-lg">
+          Start Shopping 🛍️
+        </a>
+        <a href="index.html#categories" class="btn btn-secondary btn-lg">
+          Browse Categories
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/images/logo.svg" alt="Sweet Delight" style="height: 52px; filter: brightness(0) invert(1);">
+        </a>
+        <p>Sweet Delight - Handcrafted with pure bilona desi cow ghee, authentic khoya, and fragrant spices.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Help & Info</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#sweets">Sweets</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <p style="font-size: 0.9rem; color: #E2CEB9;">📞 +91 98765 43210<br>✉️ orders@sweetdelight.com</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Freshness Promise</h4>
+        <p style="font-size: 0.85rem; color: #E2CEB9;">Every sweet box is vacuum sealed to ensure freshness reaches your doorstep.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© 2026 Sweet Delight Mithai. All Rights Reserved.</div>
+      <div>“A Little Sweetness in Every Bite.”</div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data/sweets.js"></script>
+  <script src="scripts/app.js"></script>
+  <script>
+    function renderCartPage() {
+      const cart = getCart();
+      const layout = document.getElementById('cart-content-layout');
+      const emptyView = document.getElementById('cart-empty-view');
+      const itemsList = document.getElementById('cart-items-list');
+      const clearBtn = document.getElementById('btn-clear-cart');
+      const progressBox = document.getElementById('delivery-progress-bar');
+
+      if (!cart || cart.length === 0) {
+        if (layout) layout.style.display = 'none';
+        if (emptyView) emptyView.style.display = 'block';
+        if (clearBtn) clearBtn.style.display = 'none';
+        if (progressBox) progressBox.style.display = 'none';
+        updateCartBadges();
+        return;
+      }
+
+      if (layout) layout.style.display = 'grid';
+      if (emptyView) emptyView.style.display = 'none';
+      if (clearBtn) clearBtn.style.display = 'inline-block';
+      if (progressBox) progressBox.style.display = 'flex';
+
+      // Render line items
+      itemsList.innerHTML = cart.map(item => {
+        const lineTotal = item.unitPrice * item.quantity;
+        return `
+          <div class="cart-item-row" data-key="${item.key}">
+            <div class="cart-item-product">
+              <img src="${item.image}" alt="${item.name}" class="cart-item-thumb" onerror="this.src='assets/images/placeholder.svg'">
+              <div>
+                <a href="product.html?id=${item.sweetId}" class="cart-item-name" style="display:block; text-decoration:none;">
+                  ${item.name}
+                </a>
+                <span class="cart-item-weight">Portion: ${item.weight}</span>
+              </div>
+            </div>
+
+            <div class="cart-item-price">₹${item.unitPrice}</div>
+
+            <div>
+              <div class="qty-control">
+                <button type="button" class="qty-btn" onclick="updateCartQuantity('${item.key}', -1)">-</button>
+                <input type="text" class="qty-input" value="${item.quantity}" readonly>
+                <button type="button" class="qty-btn" onclick="updateCartQuantity('${item.key}', 1)">+</button>
+              </div>
+            </div>
+
+            <div class="cart-item-subtotal">₹${lineTotal}</div>
+
+            <div>
+              <button type="button" class="btn-remove-item" title="Remove sweet" onclick="removeFromCart('${item.key}')">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Update Order Totals
+      const totals = getCartTotals();
+      document.getElementById('cart-summary-subtotal').textContent = `₹${totals.subtotal}`;
+      
+      const delivEl = document.getElementById('cart-summary-delivery');
+      if (totals.deliveryFee === 0) {
+        delivEl.innerHTML = '<span style="color:#10B981; font-weight:700;">FREE</span>';
+      } else {
+        delivEl.textContent = `₹${totals.deliveryFee}`;
+      }
+
+      // Discount row
+      const discountRow = document.getElementById('cart-discount-row');
+      const discountVal = document.getElementById('cart-summary-discount');
+      if (totals.discount > 0) {
+        discountRow.style.display = 'flex';
+        discountVal.textContent = `-₹${totals.discount} (${totals.couponCode})`;
+      } else {
+        discountRow.style.display = 'none';
+      }
+
+      document.getElementById('cart-summary-total').textContent = `₹${totals.grandTotal}`;
+
+      // Delivery progress message
+      const statusText = document.getElementById('delivery-status-text');
+      const addMoreBtn = document.getElementById('delivery-add-more-btn');
+      if (totals.subtotal >= 500) {
+        statusText.innerHTML = '🎉 Congratulations! You have unlocked <strong>FREE Express Delivery</strong>!';
+        addMoreBtn.style.display = 'none';
+      } else {
+        const remaining = 500 - totals.subtotal;
+        statusText.innerHTML = `Add sweets worth <strong>₹${remaining}</strong> more to unlock <strong>FREE Express Delivery</strong>!`;
+        addMoreBtn.style.display = 'inline-flex';
+      }
+
+      // Check current applied coupon input
+      const couponInput = document.getElementById('coupon-code-input');
+      if (totals.couponCode && couponInput && !couponInput.value) {
+        couponInput.value = totals.couponCode;
+      }
+
+      updateCartBadges();
+    }
+
+    function applyCouponCode() {
+      const input = document.getElementById('coupon-code-input');
+      const feedback = document.getElementById('coupon-feedback');
+      const code = input.value.trim().toUpperCase();
+
+      if (!code) {
+        localStorage.removeItem(STORAGE_KEYS.COUPON);
+        feedback.style.display = 'none';
+        renderCartPage();
+        return;
+      }
+
+      if (PROMO_COUPONS[code]) {
+        localStorage.setItem(STORAGE_KEYS.COUPON, code);
+        feedback.style.display = 'block';
+        feedback.style.color = '#10B981';
+        feedback.textContent = `✓ Coupon "${code}" applied: ${PROMO_COUPONS[code].label}!`;
+        showToast('Coupon Applied! 🎉', PROMO_COUPONS[code].label, 'success');
+        renderCartPage();
+      } else {
+        feedback.style.display = 'block';
+        feedback.style.color = '#EF4444';
+        feedback.textContent = `✕ Invalid coupon code. Try SWEET10 or FESTIVE50.`;
+        showToast('Invalid Coupon', 'Please check the code and try again.', 'error');
+      }
+    }
+
+    function tryCoupon(code) {
+      document.getElementById('coupon-code-input').value = code;
+      applyCouponCode();
+    }
+
+    function handleClearCartPrompt() {
+      if (confirm('Are you sure you want to clear all sweets from your cart?')) {
+        clearCart();
+        renderCartPage();
+        showToast('Cart Cleared', 'Your shopping cart is now empty.', 'maroon');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+</html>

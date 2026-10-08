@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up | Sweet Delight - Artisanal Indian Mithai</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div>
+        <span class="top-bar-badge">FESTIVE OFFER</span>
+        <span>Use code <strong>SWEET10</strong> for 10% off your first sweet order!</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="index.html">Visit Store</a>
+        <a href="index.html#contact">Store Locator</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="Sweet Delight Logo" class="brand-logo-img">
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#sweets" class="nav-link">Sweets</a></li>
+        <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-icon-btn" title="View Cart">
+          <span>🛒</span>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login / Sign-up Screen -->
+  <main class="auth-page-wrap">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="assets/images/logo.svg" alt="Sweet Delight" class="auth-brand-logo">
+        <h2 class="auth-tagline">“A Little Sweetness in Every Bite”</h2>
+        <p class="auth-subtitle">Welcome to Sweet Delight Artisanal Mithai</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab-btn active" id="tab-login-btn">Log In</button>
+        <button type="button" class="auth-tab-btn" id="tab-signup-btn">Sign Up</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form">
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-input" placeholder="name@example.com" required autocomplete="email">
+          <span class="form-error-msg" id="login-email-error">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label class="form-label" for="login-password">Password</label>
+            <span style="font-size: 0.78rem; color: var(--gold-600); cursor: pointer;" onclick="showToast('Password Reset', 'A demo reset link has been sent to your email', 'maroon')">Forgot?</span>
+          </div>
+          <div class="password-wrap">
+            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="toggle-password-btn" id="toggle-login-pass" title="Show / Hide Password">👁️</button>
+          </div>
+          <span class="form-error-msg" id="login-password-error">Password must be at least 6 characters</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-bottom: 16px;">
+          <span>Log In to Sweet Delight</span>
+        </button>
+
+        <!-- Quick Demo Account Fill Button -->
+        <button type="button" class="btn btn-secondary btn-block btn-sm" id="btn-quick-demo">
+          ⚡ One-Click Demo Login (Akash Sharma)
+        </button>
+
+        <div class="guest-login-divider">Or continue without account</div>
+
+        <a href="index.html" class="btn btn-secondary btn-block" style="text-align: center;">
+          🛍️ Continue as Guest
+        </a>
+
+        <div class="auth-footer-links">
+          <span>Don't have an account? </span>
+          <a href="#" id="link-to-signup">Sign Up</a>
+        </div>
+      </form>
+
+      <!-- SIGN UP FORM -->
+      <form id="signup-form" style="display: none;">
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" class="form-input" placeholder="e.g. Akash Sharma" required autocomplete="name">
+          <span class="form-error-msg" id="signup-name-error">Please enter your name</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" class="form-input" placeholder="name@example.com" required autocomplete="email">
+          <span class="form-error-msg" id="signup-email-error">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="signup-password">Create Password</label>
+          <div class="password-wrap">
+            <input type="password" id="signup-password" class="form-input" placeholder="At least 6 characters" required autocomplete="new-password">
+            <button type="button" class="toggle-password-btn" id="toggle-signup-pass" title="Show / Hide Password">👁️</button>
+          </div>
+          <span class="form-error-msg" id="signup-password-error">Password must be at least 6 characters</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 22px;">
+          <label class="form-label" for="signup-confirm-password">Confirm Password</label>
+          <div class="password-wrap">
+            <input type="password" id="signup-confirm-password" class="form-input" placeholder="Re-enter password" required autocomplete="new-password">
+            <button type="button" class="toggle-password-btn" id="toggle-confirm-pass" title="Show / Hide Password">👁️</button>
+          </div>
+          <span class="form-error-msg" id="signup-confirm-error">Passwords do not match</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-bottom: 16px;">
+          <span>Create Account & Start Shopping</span>
+        </button>
+
+        <div class="auth-footer-links">
+          <span>Already have an account? </span>
+          <a href="#" id="link-to-login">Log In</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="data/sweets.js"></script>
+  <script src="scripts/app.js"></script>
+  <script>
+    // Tab switching logic
+    const tabLoginBtn = document.getElementById('tab-login-btn');
+    const tabSignupBtn = document.getElementById('tab-signup-btn');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const linkToSignup = document.getElementById('link-to-signup');
+    const linkToLogin = document.getElementById('link-to-login');
+
+    function showLogin() {
+      tabLoginBtn.classList.add('active');
+      tabSignupBtn.classList.remove('active');
+      loginForm.style.display = 'block';
+      signupForm.style.display = 'none';
+    }
+
+    function showSignup() {
+      tabSignupBtn.classList.add('active');
+      tabLoginBtn.classList.remove('active');
+      signupForm.style.display = 'block';
+      loginForm.style.display = 'none';
+    }
+
+    tabLoginBtn.addEventListener('click', showLogin);
+    tabSignupBtn.addEventListener('click', showSignup);
+    linkToSignup.addEventListener('click', (e) => { e.preventDefault(); showSignup(); });
+    linkToLogin.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+
+    // Show / Hide Password toggles
+    function setupPassToggle(btnId, inputId) {
+      const btn = document.getElementById(btnId);
+      const input = document.getElementById(inputId);
+      if (btn && input) {
+        btn.addEventListener('click', () => {
+          if (input.type === 'password') {
+            input.type = 'text';
+            btn.textContent = '🔒';
+          } else {
+            input.type = 'password';
+            btn.textContent = '👁️';
+          }
+        });
+      }
+    }
+    setupPassToggle('toggle-login-pass', 'login-password');
+    setupPassToggle('toggle-signup-pass', 'signup-password');
+    setupPassToggle('toggle-confirm-pass', 'signup-confirm-password');
+
+    // Quick demo login
+    document.getElementById('btn-quick-demo').addEventListener('click', () => {
+      document.getElementById('login-email').value = 'akash@sweetdelight.com';
+      document.getElementById('login-password').value = 'mithai123';
+      showToast('Demo Credentials Filled', 'Logging in as Akash Sharma...', 'maroon');
+      setTimeout(() => {
+        saveUser({
+          name: 'Akash Sharma',
+          email: 'akash@sweetdelight.com',
+          phone: '9876543210',
+          isLoggedIn: true
+        });
+        showToast('Welcome, Akash!', 'Redirecting to Sweet Delight Home...', 'success');
+        setTimeout(() => window.location.href = 'index.html', 800);
+      }, 500);
+    });
+
+    // Handle Login submission
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const emailErr = document.getElementById('login-email-error');
+      const passErr = document.getElementById('login-password-error');
+
+      let valid = true;
+      if (!email || !email.includes('@')) {
+        loginForm.querySelector('#login-email').parentElement.classList.add('has-error');
+        valid = false;
+      } else {
+        loginForm.querySelector('#login-email').parentElement.classList.remove('has-error');
+      }
+
+      if (!password || password.length < 6) {
+        loginForm.querySelector('#login-password').closest('.form-group').classList.add('has-error');
+        valid = false;
+      } else {
+        loginForm.querySelector('#login-password').closest('.form-group').classList.remove('has-error');
+      }
+
+      if (!valid) return;
+
+      const userName = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
+      const formattedName = userName ? userName.charAt(0).toUpperCase() + userName.slice(1) : 'Customer';
+
+      saveUser({
+        name: formattedName,
+        email: email,
+        phone: '9876543210',
+        isLoggedIn: true
+      });
+
+      showToast('Welcome Back!', `Logged in successfully as ${formattedName}`, 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 800);
+    });
+
+    // Handle Signup submission
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const confirmPass = document.getElementById('signup-confirm-password').value;
+
+      let valid = true;
+
+      if (!name) {
+        signupForm.querySelector('#signup-name').parentElement.classList.add('has-error');
+        valid = false;
+      } else {
+        signupForm.querySelector('#signup-name').parentElement.classList.remove('has-error');
+      }
+
+      if (!email || !email.includes('@')) {
+        signupForm.querySelector('#signup-email').parentElement.classList.add('has-error');
+        valid = false;
+      } else {
+        signupForm.querySelector('#signup-email').parentElement.classList.remove('has-error');
+      }
+
+      if (!password || password.length < 6) {
+        signupForm.querySelector('#signup-password').closest('.form-group').classList.add('has-error');
+        valid = false;
+      } else {
+        signupForm.querySelector('#signup-password').closest('.form-group').classList.remove('has-error');
+      }
+
+      if (password !== confirmPass) {
+        signupForm.querySelector('#signup-confirm-password').closest('.form-group').classList.add('has-error');
+        valid = false;
+      } else {
+        signupForm.querySelector('#signup-confirm-password').closest('.form-group').classList.remove('has-error');
+      }
+
+      if (!valid) return;
+
+      saveUser({
+        name: name,
+        email: email,
+        phone: '',
+        isLoggedIn: true
+      });
+
+      showToast('Account Created! 🎉', `Welcome to the Sweet Delight family, ${name}!`, 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 800);
+    });
+  </script>
+</body>
+</html>

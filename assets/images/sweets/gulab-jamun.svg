@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF5EB" />
+      <stop offset="100%" stop-color="#FCE0D0" />
+    </radialGradient>
+    <radialGradient id="jamun1" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#B85D19" />
+      <stop offset="45%" stop-color="#7A2E07" />
+      <stop offset="90%" stop-color="#451400" />
+    </radialGradient>
+    <radialGradient id="jamun2" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#C26A20" />
+      <stop offset="50%" stop-color="#843209" />
+      <stop offset="100%" stop-color="#481502" />
+    </radialGradient>
+    <radialGradient id="syrup" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFA834" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.95" />
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#451400" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg)"/>
+  
+  <!-- Royal Brass Bowl -->
+  <ellipse cx="300" cy="280" rx="210" ry="85" fill="#B38600" filter="url(#shadow)"/>
+  <ellipse cx="300" cy="272" rx="200" ry="78" fill="#E6B800" stroke="#FFE57F" stroke-width="4"/>
+  <ellipse cx="300" cy="265" rx="185" ry="68" fill="url(#syrup)"/>
+
+  <!-- Gulab Jamuns in Syrup -->
+  <g filter="url(#shadow)">
+    <!-- Back Jamuns -->
+    <circle cx="230" cy="235" r="52" fill="url(#jamun1)"/>
+    <ellipse cx="218" cy="220" rx="15" ry="9" fill="#FFF" opacity="0.35" transform="rotate(-20 218 220)"/>
+
+    <circle cx="370" cy="235" r="52" fill="url(#jamun1)"/>
+    <ellipse cx="358" cy="220" rx="15" ry="9" fill="#FFF" opacity="0.35" transform="rotate(-20 358 220)"/>
+
+    <!-- Front Jamuns -->
+    <circle cx="300" cy="205" r="58" fill="url(#jamun2)"/>
+    <ellipse cx="285" cy="188" rx="18" ry="10" fill="#FFF" opacity="0.45" transform="rotate(-25 285 188)"/>
+
+    <circle cx="300" cy="265" r="54" fill="url(#jamun1)"/>
+    <ellipse cx="285" cy="250" rx="15" ry="9" fill="#FFF" opacity="0.4" transform="rotate(-20 285 250)"/>
+  </g>
+
+  <!-- Garnishes: Saffron threads & Pistachio slivers -->
+  <path d="M285,180 Q295,175 305,185" stroke="#E11D48" stroke-width="2.5" fill="none"/>
+  <path d="M310,210 Q325,205 320,225" stroke="#E11D48" stroke-width="2.5" fill="none"/>
+  <path d="M225,230 Q235,225 240,240" stroke="#DC2626" stroke-width="2" fill="none"/>
+  <rect x="290" y="195" width="12" height="4" rx="2" fill="#16A34A" transform="rotate(35 290 195)"/>
+  <rect x="315" y="190" width="10" height="3.5" rx="1.5" fill="#15803D" transform="rotate(-40 315 190)"/>
+  <rect x="235" y="225" width="11" height="4" rx="2" fill="#16A34A" transform="rotate(15 235 225)"/>
+  <rect x="360" y="230" width="12" height="4" rx="2" fill="#16A34A" transform="rotate(-25 360 230)"/>
+
+  <!-- Title Badge -->
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">GULAB JAMUN</text>
+</svg>

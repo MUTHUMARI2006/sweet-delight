@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bhBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </radialGradient>
+    <radialGradient id="halwaGold" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="40%" stop-color="#D97706" />
+      <stop offset="85%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#78350F" />
+    </radialGradient>
+    <filter id="bhShadow">
+      <feDropShadow dx="0" dy="15" stdDeviation="16" flood-color="#78350F" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#bhBg)"/>
+
+  <!-- Ornate Royal Gold Bowl -->
+  <ellipse cx="300" cy="285" rx="210" ry="80" fill="#78350F" filter="url(#bhShadow)"/>
+  <ellipse cx="300" cy="275" rx="200" ry="72" fill="#D97706" stroke="#FEF3C7" stroke-width="3"/>
+  
+  <!-- Halwa Mound with Ghee Gloss -->
+  <ellipse cx="300" cy="245" rx="170" ry="60" fill="url(#halwaGold)"/>
+  <ellipse cx="300" cy="220" rx="120" ry="45" fill="url(#halwaGold)"/>
+  <ellipse cx="300" cy="195" rx="80" ry="32" fill="#FBBF24"/>
+
+  <!-- Glistening ghee highlight -->
+  <ellipse cx="280" cy="190" rx="35" ry="12" fill="#FFF" opacity="0.3" transform="rotate(-10 280 190)"/>
+
+  <!-- Slivered Almonds (Badam) and Saffron strands -->
+  <ellipse cx="270" cy="180" rx="14" ry="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" transform="rotate(30 270 180)"/>
+  <ellipse cx="320" cy="185" rx="13" ry="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" transform="rotate(-20 320 185)"/>
+  <ellipse cx="295" cy="210" rx="15" ry="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" transform="rotate(10 295 210)"/>
+  <ellipse cx="340" cy="225" rx="14" ry="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" transform="rotate(-45 340 225)"/>
+  <ellipse cx="250" cy="230" rx="14" ry="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" transform="rotate(25 250 230)"/>
+
+  <!-- Deep red saffron strands -->
+  <path d="M285,175 Q295,168 302,178" stroke="#DC2626" stroke-width="2.5" fill="none"/>
+  <path d="M305,195 Q318,190 322,205" stroke="#DC2626" stroke-width="2" fill="none"/>
+
+  <!-- Badge -->
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">ROYAL BADAM HALWA</text>
+</svg>

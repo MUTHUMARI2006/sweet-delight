@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="rgBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0FDF4" />
+      <stop offset="100%" stop-color="#DCFCE7" />
+    </radialGradient>
+    <radialGradient id="spongeWhite" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#F8FAFC" />
+      <stop offset="90%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </radialGradient>
+    <radialGradient id="clearSyrup" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#BAE6FD" stop-opacity="0.9" />
+    </radialGradient>
+    <filter id="rgShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#rgBg)"/>
+
+  <!-- Crystal Glass Bowl -->
+  <ellipse cx="300" cy="285" rx="210" ry="85" fill="#94A3B8" opacity="0.3" filter="url(#rgShadow)"/>
+  <ellipse cx="300" cy="275" rx="200" ry="78" fill="#E2E8F0" stroke="#FFFFFF" stroke-width="4"/>
+  <ellipse cx="300" cy="270" rx="185" ry="68" fill="url(#clearSyrup)"/>
+
+  <!-- Soft White Rasgullas -->
+  <g filter="url(#rgShadow)">
+    <circle cx="230" cy="235" r="52" fill="url(#spongeWhite)"/>
+    <ellipse cx="218" cy="218" rx="16" ry="8" fill="#FFF" opacity="0.8"/>
+
+    <circle cx="370" cy="235" r="52" fill="url(#spongeWhite)"/>
+    <ellipse cx="358" cy="218" rx="16" ry="8" fill="#FFF" opacity="0.8"/>
+
+    <circle cx="300" cy="205" r="58" fill="url(#spongeWhite)"/>
+    <ellipse cx="285" cy="185" rx="18" ry="9" fill="#FFF" opacity="0.9"/>
+
+    <circle cx="300" cy="265" r="54" fill="url(#spongeWhite)"/>
+  </g>
+
+  <!-- Saffron Strands and Rose Petals -->
+  <path d="M285,185 Q295,178 305,188" stroke="#E11D48" stroke-width="2.5" fill="none"/>
+  <path d="M312,208 Q322,200 326,218" stroke="#E11D48" stroke-width="2" fill="none"/>
+  <path d="M225,230 Q235,225 240,240" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+  <path d="M365,225 Q375,220 380,235" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+
+  <!-- Delicate Rose Petal Floating -->
+  <path d="M270,250 C265,240 280,235 285,245 C290,255 275,260 270,250 Z" fill="#F43F5E" opacity="0.85"/>
+
+  <!-- Badge -->
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">BENGALI RASGULLA</text>
+</svg>

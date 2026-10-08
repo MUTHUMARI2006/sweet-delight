@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="kpBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </radialGradient>
+    <radialGradient id="pedaGold" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </radialGradient>
+    <filter id="kpShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#78350F" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="600" height="450" fill="url(#kpBg)"/>
+  <ellipse cx="300" cy="280" rx="210" ry="80" fill="#D97706" opacity="0.2" filter="url(#kpShadow)"/>
+  <ellipse cx="300" cy="272" rx="195" ry="72" fill="#FFFDF5" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Peda Discs with stamp depression -->
+  <g filter="url(#kpShadow)">
+    <circle cx="220" cy="230" r="50" fill="url(#pedaGold)"/>
+    <circle cx="220" cy="230" r="22" fill="#D97706" opacity="0.4"/>
+    <circle cx="380" cy="230" r="50" fill="url(#pedaGold)"/>
+    <circle cx="380" cy="230" r="22" fill="#D97706" opacity="0.4"/>
+    <circle cx="300" cy="205" r="56" fill="url(#pedaGold)"/>
+    <circle cx="300" cy="205" r="25" fill="#D97706" opacity="0.4"/>
+  </g>
+  <!-- Pistachio & Saffron strand -->
+  <rect x="294" y="200" width="12" height="5" rx="2" fill="#15803D" transform="rotate(30 294 200)"/>
+  <path d="M296,192 Q304,188 308,198" stroke="#DC2626" stroke-width="2" fill="none"/>
+  <rect x="214" y="225" width="12" height="5" rx="2" fill="#15803D"/>
+  <rect x="374" y="225" width="12" height="5" rx="2" fill="#15803D"/>
+  <rect x="190" y="380" width="220" height="42" rx="21" fill="#7A1228" />
+  <text x="300" y="406" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="#FFE57F" text-anchor="middle">KESAR PEDA</text>
+</svg>
